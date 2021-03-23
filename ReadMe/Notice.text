@@ -1,0 +1,94 @@
+                            Tennis.com
+
+Le site tennis.com de ce projet est un site fictif n'ayant pour seul objectif que d'être un projet de fin de formation de développeur - intégrateur web à la 3WAcademy. 
+Il ne fait donc l'objet d'aucun accord avec le club de tennis de Thonon-les-Bains dont il vente les mérites. 
+Par conséquent il ne permet pas d'intégrer la vie associative ou sportive du club, d'effectuer une quelconque réservation, d'accéder aux résaux sociaux instagram, facebook, twitter du club (ces réseaux étant propriétés du club, ou innexistants), ou de lire de réels articles ou commentaires sur le blog puisque ceux-ci ont été créés dans le seul but de démontrer le bon fonctionnement du code et de la gestion de la BDD du blog.
+
+Le site se compose (d'un point de vue code) de 2 grandes parties:
+-une partie "site vitrine" composée de html, css et javascript.
+-une partie blog qui est composée de html, css, javascript, php, mysql qui gère les informations envoyées par les internautes en les traitant et les enregistrant dans une base de données.
+Pour ce faire et afin d'être optimisé ce site respecte une structure MVC Models Views Controllers, ainsi que des namespaces afin d'éviter les conflits (ou collisions).
+
+L'arborescence du site sera donc composée de différents dossiers contenant des fichiers.
+Les dossiers sont les suivants:
+-config
+-Controllers
+-Models
+-public 
+-Views 
+-index.php qui est le fichier "router" du site.
+-ReadMe étant un dossier comprenant les explications de création et fonctionnement du site (CRUD).
+
+Voyons maintenant le détail des fichiers, dossier par dossier:
+
+Le dossier config ne contient qu'un fichier nommé auto_loader.php servant à charger automatiquement des class à la volée.
+
+Le dossier Controllers contient 3 fichiers:
+-AbstractController.php qui est 1 parent qui par héritage permet aux enfants d'appeller des methods et donc évite de les réécrire.
+-BlogController.php gère les actions ayant attrait au blog.
+-IndexController.php gère les actions ayant attrait au site "vitrine".
+
+Le dossier Models contient 4 sous-dossiers:
+-DAO contenant le fichier Dao.php servant à la connexion à la base de données.
+-Entity contenant les fichiers Articles.php, Commentaires.php, Entity.php (définie une class générale dont les autres vont hériter), Membres.php. 
+Dans Entity on retrouve nos class qui deviennent des entités (tables: articles, commentaires, membres) dans la BDD.
+-Managers contenant les fichiers ManagerArticles.php, ManagerCommentaires.php, ManagerMembres.php 
+Managers contient les methods qui permettent de créer et récupérer les objets en BDD (ce qui gère le CRUD).
+-ManagersInterface contenant le fichier ManagerInterface.php qui sont des interfaces (voir programmation orientée objet).
+
+Le dossier public contient pour sa part tous les autres fichiers statiques du site:
+-css, contenant le fichier projet1.css 
+-images, contenant les images utilisées pour l'élaboration des sliders, organigramme, logo 
+-js, contenant les différents fichiers javascript (hamburger, sliders, messages flash...) utilisés dans le site 
+
+Le dossier Views contient les différentes vues (.phtml) qui sont, par conséquent, les pages visibles sur l'écran de l'utilisateur, mais aussi zones d'interaction et de collectes d'informations grâce aux formulaires visant à enrichire la BDD. 
+
+Le fichier index.php qui est le fichier "router" et point d'encrage du site.
+
+LE SITE "VITRINE":
+
+Pour accéder au site tennis.com, l'utilisateur doit entrer les information de recherche suivantes: http://localhost/tennis.com/index.php?page=home
+L'utilisateur arrivera sur la page "home" qui est la page d'accueil du site.
+Il aura alors a disposition une nav barre en header qui lui permettra d'accéder aux différentes pages qui composent le site grâce au lien <a href="index.php?page=(page recherchée)">.
+Cette nav barre modifie l'aspect du lien survolé par la souris grâce au "hover" en css.
+Les différentes pages de cette partie "vitrine", ont pour but de présenter le club, et d'informer le lecteur sur la vie du club, les démarches à suivre pour intégrer le club, faire connaître les dirigeants, profs et autres tarifs, et renseigner sur les coordonnées et la localisation du club grâce à un iframe.
+Les pages de cette partie "vitrine" sont donc composées d'éléments html mis en page grâce au css. L'interactivité se faisant par le biais des fichiers js (sliders, bouton organigramme, hamburger, bouton scroller).
+Dans le footer les icônes de reseaux sociaux ne redirigent vers aucun lien social en raison de l'aspect informel du site et donc de l'interdiction d'utiliser les éléments sociaux propriété du club.
+Le site (vitrine et blog) est responsive desktop first grâce à l'utilisation de "@media screen" en css.
+En formats tablette et mobile, la nav barre apparaît sous un format différent (partie de gauche avec un glissement latéral gauche-droite) en cliquant sur le bouton "hamburger" qui apparaît (sous ces formats) en haut à droite de la page. 
+La fonction scroll faite en js simplifie la lisibilité de toutes les pages du sites.
+Le bouton scroll reste toujours accessible et visible grâce à une forme et une couleur qui lui permettent de se détacher du reste de la page, quelque soit la page et le background, image ou formulaire sur lequel il se trouve. 
+
+
+BLOG ET Base De Données:
+
+L'accès à la base de données (pour voir le détail des tables) se fait grâce à: (mysql:host=127.0.0.1;port=3306;dbname=tennis_blog;charset=utf8', 'root', ''), il n'y a donc pas de mot de passe.
+Lorsqu'il clique sur le bouton "blog", l'utilisateur arrive sur la page de connexion.
+La partie blog requière une base de données qui gère de façon sécurisée (utilisation de hash_password pour les mots de passe, htmlspecialchars, et requêtes préparées) les informations liées aux membres ainsi que leurs post (articles ou commentaires).
+Cette BDD se compose de 3 tables liées par des clés primaires et étrangères permettant la création, la lecture, la mise à jour (modification) et suppression des informations des membres, articles et commentaires (voir schéma fichier CRUD).
+La suppression d'articles (et des commentaires qui leurs sont associés) n'est possible que si l'utilisateur a le statut de ADMIN (is_admin).
+Par conséquent afin de pouvoir juger de l'efficacité de toutes les fonctions du blog, il est IMPERATIF de se connecter avec les informations suivantes:
+        mail: prof@gmail.com 
+        mot de passe: super 
+Vous serez alors identifié comme le membre dénommé prof et ayant le statut ADMIN. 
+
+Si l'utilisateur n'est pas encore membre, il peut alors cliquer sur "s'incrire" et sera redirigé vers la page "signup" afin de remplir le formulaire d'inscription et donc de créer son profil qui sera enregistré dans la BDD.
+Les données remplies par l'utilisateur sont alors vérifiées (htmlspecialchars), sécurisées grâce au hachage de mot de passe hash_password, et grâce à des requêtes préparées afin d'éviter les injections sql. 
+Une fois la validation des informations effectuée, son profil de membre sera créé en BDD, le nouveau membre sera alors redirigé vers la page de connexion sur laquelle il verra apparaître un message "flash" lui signifiant que son compte a bien été créé.
+Après s'être connecté l'utilisateur est redirigé vers la page "profil" qui lui permettra de lire les informations le concernant, mais aussi de les modifier (bouton "editer mon profil").
+Suite à cette action il sera redirigé sur la page "editionprofil" où il pourra modifier les informations de son profil en remplissant les champs prévus à cet effet. 
+Il est important de noter que tous les champs doivent être remplis (valable pour tous les formulaires).
+Une fois connecté, le membre pourra choisir de lire les articles en cliquant sur le lien du même nom en nav barre, ce qui le redirigera vers la page "blogindex" sur laquelle il pourra lire les 10 derniers articles postés.
+Il pourra alors lire l'article de son choix en cliquant sur l'article en question ou bien créer un article en cliquant sur le bouton "rédiger un article".
+S'il choisie de rédiger un article il sera rediriger sur la page "add_billet" permettant de collecter les informations (titre et contenu) relatives à son article (le tout toujours vérifié et sécurisé).
+La validation de cet article se fera grâce au bouton "envoyer" qui permettra l'enregistrement du titre, contenu de l'article, mais aussi l'attibution d'un ID qui permettra par la suite d'associer un commentaire à cet article en fonction de son ID. 
+Si le membre choisie de lire un article il sera alors redirigé vers la page "show_article" sur laquelle il pourra lire l'article sélectionné ainsi que les commentaires liés à cet article grâce à l'ID de l'article. 
+Sur cette même page il pourra cliquer sur "rédiger un commentaire" afin d'être redirigé vers la page "add_commentaire" où il trouvera un formulaire reprenant son pseudo et le contenu de son commentaire (toujours vérifié et sécurisé), le tout étant enregistré en BDD (en lien avec l'ID de l'article) au clique sur le bouton "poster mon commentaire". 
+
+Sur la page "blogindex" (liste des 10 derniers articles), le membre ADMIN (prof) aura une fonction supplémentaire qui lui sera proposée à côté des articles: la fonction "supprimer". 
+Comme son nom l'indique cette fonction lui permet de supprimer en BDD (et de fait en view "blogindex) un ou plusieurs articles. 
+
+La fonction "déconnexion" visible en nav barre mais aussi sur le profil du membre (page "profil") permet, comme son nom l'indique, de se déconnecter et redirige le membre vers la page de "connexion".
+
+La fonction "retour site" permet au membre d'être redirigé vers la page "home" qui est la page d'accueuil du site. Si le membre est connecté, il pourra utiliser cette fonction et faire des allers-retours entre le blog et la page "home" du site sans être déconnecté (sa session restant active).
+

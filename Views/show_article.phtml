@@ -1,0 +1,29 @@
+<!--- présentation des articles sous forme titre, paragraphe --->
+<div class="container-show">
+    <div class="show">
+        <div id="article">
+            <h1 class="h1"><?= $this->arguments["article"]["titre"] ?></h1>
+            <p><?= $this->arguments["article"]["contenu"] ?></p>
+
+        </div>
+        <div id="commentaire">
+            <h2>Commentaires: </h2>
+            <?php foreach ($this->arguments["comments"] as $c) { ?>
+                <div class="display-commentaire"> <?= $c->getPseudo(); ?>: <?= $c->getContenu(); ?></div>
+            <?php } ?>
+
+
+        </div>
+    </div>
+    <div id="commentButton">
+        <p class="lead">
+            <a class="boutton_comment" href="index.php?page=add_commentaire&id=<?= $this->arguments["article"]["id"] ?>" role="button">Rédiger un commentaire</a>
+        </p>
+    </div>
+</div>
+<div class="btn">
+    <i class="fas fa-arrow-circle-up"></i>
+</div>
+<!--- Fichier JS --->
+
+<script src="js/scroll.js"></script>

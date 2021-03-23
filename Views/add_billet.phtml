@@ -1,0 +1,23 @@
+<!--- ajout d'un article par le biais d'un formulaire "form" --->
+<div class="addArticle">
+    <h2>Nouvel article</h2>
+    <form class="add-billet-form" method="POST" name="add_postform" action="index.php">
+        <input type="hidden" name="addArticle" value="create" />
+        <input class="textarticle" type="text" name="article_titre" placeholder="Titre" />
+        <textarea class="articlecontent" name="article_contenu" placeholder="Contenu de l'article" rows="10" cols="45"></textarea>
+
+        <input class="inputarticle" type="submit" value="Envoyer" name="add" />
+    </form>
+    <br />
+    <?php if (isset($message) && !empty($message)) {
+        echo $message;
+    }
+    ?>
+    <p>Le Tennis Club de THONON vous offre la possibilité de vous exprimer en toute liberté sur notre sujet favori: le tennis. Cependant, afin de communiquer dans le calme et l'amité, nous vous demandons d'être respectueux et surtout correctes. <span>Tout article qui ne respecterait pas cette règle sera automatiquement supprimé par l'administrateur du blog.</span> </p>
+</div>
+<div class="btn">
+    <i class="fas fa-arrow-circle-up"></i>
+</div>
+<!--- Fichier JS --->
+
+<script src="public/js/scroll.js"></script>

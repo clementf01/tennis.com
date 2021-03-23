@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <meta http-equiv="X-UA-Compatible" content="ie=edge"> -->
+  <title>Tennis blog de Thonon</title>
+  <link rel=" stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="public/css/projet1.css">
+  <script src="public/js/blog.js" async></script>
+  <script src="public/js/hamburger.js" async></script>
+  <script src="public/js/scroll.js" async></script>
+  <script src="public/js/timeout.js" async></script>
+
+</head>
+
+<body>
+
+  <header>
+
+    <!--- hamburger complet --->
+    <div id="hamburger">
+      <div id="header">
+        <div id="hamburger-content">
+          <h4>Tennis Blog</h4>
+          <nav>
+            <ul>
+              <li><a href="index.php?page=blogindex">Lire les articles</a></li>
+              <li><a href="index.php?page=connexion">Se connecter</a></li>
+              <li><a href="index.php?page=signup">S'inscrire</a></li>
+              <li><a href="index.php?page=deconnexion">Deconnexion</a></li>
+              <li><a href="index.php?page=home">Retour site</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+      <button id="hamburger-button">&#9776;</button>
+      <div id="hamburger-sidebar">
+        <!---<div id="hamburger-sidebar-header"></div>--->
+        <div id="hamburger-sidebar-body"></div>
+      </div>
+      <div id="hamburger-overlay"></div>
+    </div>
+
+  </header>
+
+  <main class="container">
+    <?php
+
+    include $template . '.phtml'
+    ?>
+  </main>
+
+  <footer>
+    <section class="container_footer">
+      <div class="communication">
+        <div class="contact">
+
+          <h3>contact</h3>
+          <!--- création d'une liste non ordonnée qui permettra d'afficher les coordonnées du club de tennis --->
+          <ul>
+            <li>Adresse: Avenue de la Grangette 74200 Thonon-les-bains</li>
+            <li>Tél: 04 50 71 69 51</li>
+            <li>Mail: clement.faivre8@wanadoo.fr</li>
+          </ul>
+        </div>
+
+        <div class="social">
+          <ul>
+            <li> <a href="#"><i class="fab fa-facebook-square"></i></a></li>
+            <!---
+                --->
+            <li><a href="#"><i class="fab fa-twitter-square"></i></a></li>
+            <!---
+                --->
+            <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <section class="licence">
+      <img alt="Propriété de Clement Faivre" style="border-width:0" src="public/images/TC-thonon.jpg" />
+      <p>Ce site du T.C. THONON-LES-BAINS
+        est mis à disposition pour l'usage personnel de l'étudiant et des professeurs, Pas de Rediffusion - Attribution - Pas d'Utilisation Commerciale - Pas de Modification - International.Les autorisations au-delà du champ de cette
+        licence peuvent être obtenues auprès de <a href="mailto:clement.faivre8@wanadoo.fr" rel="cc:morePermissions">clement.faivre8@wanadoo.fr</a>. Les maquettes ont été réalisées par Clément Faivre.</p>
+
+    </section>
+
+  </footer>
+
+</body>
+
+
+</html>

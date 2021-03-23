@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <meta http-equiv="X-UA-Compatible" content="ie=edge"> -->
+    <title>club de tennis de THONON-LES-BAINS</title>
+    <!-- Liens css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="public/css/projet1.css" type="text/css">
+    <!-- Liens js -->
+    <script src="https://kit.fontawesome.com/4607c48e45.js" crossorigin="anonymous"></script>
+    <script src="public/js/hamburger.js" async></script>
+    <script src="public/js/slider-accueil.js" async></script>
+    <script src="public/js/sliderP.js" async></script>
+    <script src="public/js/organigramme.js" async></script>
+    <script src="public/js/scroll.js" async></script>
+</head>
+
+<body>
+
+
+    <header>
+
+        <div id="hamburger">
+            <div id="header">
+                <div id="hamburger-content">
+                    <h1>T.C.THONON-LES-BAINS</h1>
+                    <nav>
+                        <ul>
+                            <li><a href="index.php?page=home">Accueil</a></li>
+                            <li><a href="index.php?page=actualite">Actualité</a></li>
+                            <li><a href="index.php?page=presentation">Présentation du club</a></li>
+                            <li><a href="index.php?page=ecole">Ecole de tennis</a></li>
+                            <li><a href="index.php?page=adhesion">Adhesion</a></li>
+                            <li><a href="index.php?page=contact">Contactez-nous</a></li>
+                            <li><a href="index.php?page=blogindex">Blog</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <button id="hamburger-button">&#9776;</button>
+            <div id="hamburger-sidebar">
+                <!---<div id="hamburger-sidebar-header"></div>--->
+                <div id="hamburger-sidebar-body"></div>
+            </div>
+            <div id="hamburger-overlay"></div>
+        </div>
+
+
+    </header>
+    <main class="template">
+        <?php include $template . '.phtml' ?>
+    </main>
+    <footer>
+        <section class="container_footer">
+            <div class="communication">
+                <div class="contact">
+
+                    <h3>contact</h3>
+                    <!--- création d'une liste non ordonnée qui permettra d'afficher les coordonnées du club de tennis --->
+                    <ul>
+                        <li>Adresse: Avenue de la Grangette 74200 Thonon-les-bains</li>
+                        <li>Tél: 04 50 71 69 51</li>
+                        <li>Mail: clement.faivre8@wanadoo.fr</li>
+                    </ul>
+                </div>
+
+                <div class="social">
+                    <ul>
+                        <li> <a href="#"><i class="fab fa-facebook-square"></i></a></li>
+                        <!---
+                --->
+                        <li><a href="#"><i class="fab fa-twitter-square"></i></a></li>
+                        <!---
+                --->
+                        <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section class="licence">
+            <img alt="Propriété de Clement Faivre" style="border-width:0" src="public/images/TC-thonon.jpg" />
+            <p>Ce site du T.C. THONON-LES-BAINS
+                est mis à disposition pour l'usage personnel de l'étudiant et des professeurs, Pas de Rediffusion - Attribution - Pas d'Utilisation Commerciale - Pas de Modification - International.Les autorisations au-delà du champ de cette
+                licence peuvent être obtenues auprès de <a href="mailto:clement.faivre8@wanadoo.fr" rel="cc:morePermissions">clement.faivre8@wanadoo.fr</a>. Les maquettes ont été réalisées par Clément Faivre.</p>
+
+        </section>
+
+    </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,75 @@
+<!--- pour des raisons de lisibilité et de clareté j'ai opté pour un formulaire d'inscription sous forme de tableau, j'utilise "align right" sur les <td> pour aligner le label sur le placeholder pour des questions de ptrésentation --->
+<div id="center">
+
+    <h2>Inscription</h2>
+
+    <form class="signup-form" method="POST" action="index.php">
+        <input type="hidden" name="registering" value="member-register" />
+        <table class="tabsignup">
+            <tr>
+                <td align="right">
+                    <label for="pseudo">Pseudo :</label>
+                </td>
+                <td>
+                    <input type="text" required placeholder="Votre pseudo" id="pseudo" name="pseudo" />
+                </td>
+            </tr>
+            <tr>
+                <td align="right">
+                    <label for="mail">Mail :</label>
+                </td>
+                <td>
+                    <input class="mailsignup" type="text" required placeholder="Votre mail" id="mail" name="mail" />
+                </td>
+            </tr>
+            <tr>
+                <td align=" right">
+                    <label for="mail2">Confirmation du mail :</label>
+                </td>
+                <td>
+                    <input class="mailsignup2" type="email" required placeholder="Confirmez votre mail" id="mail2" name="mail2" />
+                </td>
+            </tr>
+            <tr>
+                <td align="right">
+                    <label for="mdp">Mot de passe :</label>
+                </td>
+                <td>
+                    <input class="pwsignup" type="password" required placeholder="Votre mot de passe" id="mdp" name="motdepasse" />
+                </td>
+            </tr>
+            <tr>
+                <td align="right">
+                    <label for="mdp2">Confirmation du mot de passe :</label>
+                </td>
+                <td>
+                    <input class="pwsignup2" type="password" required placeholder="Confirmez votre mdp" id="mdp2" name="motdepasse2" />
+                </td>
+            </tr>
+            <tr>
+                <td align="center" colspan="2">
+                    <input class="inputsignup" type="submit" name="forminscription" value="Je m'inscris" />
+                </td>
+            </tr>
+        </table>
+
+    </form>
+
+    <div id="signupP">
+        <p>Le Tennis Club de Thonon-Les-Bains est heureux de vous compter parmis ses membres utilisateurs de son blog qui est un merveilleux lieu de communication et d'échange entre les amateurs de tennis mais aussi avec les anonymes qui souhaitent exprimer le humeur du moment concernant le tennis.</p>
+        <p> Alors BIENVENUE A TOUS !
+        </p>
+    </div>
+    <?php
+    /* insertion des messages d'erreurs si le formulaire est mal rempli */
+    if (isset($erreur)) {
+        echo '<font color="red">' . $erreur . "</font>";
+    }
+    ?>
+</div>
+<div class="btn">
+    <i class="fas fa-arrow-circle-up"></i>
+</div>
+<!--- Fichier JS --->
+
+<script src="public/js/scroll.js"></script>

@@ -1,0 +1,38 @@
+<?php
+$userinfo = unserialize($_SESSION['user']);
+if (isset($_SESSION["confirmation"])) {
+    echo "<div class='alerte-confirmation'>" . $_SESSION["confirmation"] . "</div>";
+}
+?>
+
+<div id="profile">
+    <h2>Profil de <?php echo $userinfo['pseudo']; ?></h2>
+    <div id="pseudo">
+        Pseudo: <?php echo $userinfo['pseudo']; ?>
+
+    </div>
+    <div id="mail">
+        Mail: <?php echo $userinfo['mail']; ?>
+
+    </div>
+
+    <?php
+
+    if (isset($_SESSION['id']) && $userinfo['id'] == $_SESSION['id']) {
+    ?>
+        <a href="index.php?page=editionprofil">Editer mon profil</a>
+        <a href="index.php?page=deconnexion">Se déconnecter</a>
+    <?php
+    }
+    ?>
+    <p>N'hesitez pas a editer votre profil afin d'y apporter les modifications que vous souhaitez concernant votre pseudo, mail ou mot de passe.</p>
+</div>
+
+<div class="btn">
+    <i class="fas fa-arrow-circle-up"></i>
+</div>
+
+<!--- Fichier JS --->
+
+<script src="public/js/scroll.js"></script>
+<script src="public/js/timeout.js"></script>

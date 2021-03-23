@@ -1,0 +1,45 @@
+<!--- récupération de l'article sélectionné --->
+<div class="newComment">
+    <div id="articleCom">
+        <h2>Article:</h2>
+        <p>
+            <?php
+            echo $this->arguments["article"]["contenu"];
+
+            ?>
+        </p>
+
+
+    </div>
+
+    <!--- réception des données "commentaire" postées par l'utilisateur par le biais du formulaire de commentaire --->
+    <div id="commentairesCom">
+        <h2>Commentaires:</h2>
+        <form method="POST" action="index.php">
+
+            <input id="pseudo" type="text" name="pseudo" placeholder="Votre pseudo" />
+
+
+            <textarea id="contenu" name="contenu" placeholder="Votre commentaire..." rows="10" cols="45"></textarea>
+
+            <div id="submitCom">
+                <input type="submit" value="Poster mon commentaire" name="submit_commentaire" />
+                <input type="hidden" name="id_article" value="<?php echo $this->arguments["article"]["id"]; ?>">
+                <input type="hidden" name="add_commentaire" value="ajouter" />
+            </div>
+        </form>
+        <?php if (isset($c_msg)) {
+            echo $c_msg;
+        } ?>
+    </div>
+
+</div>
+<div class="regle">
+    <p>Le Tennis Club de Thonon vous laisse libres de vos commentaires. <span>Cependant, le non respect des règles de politesse et d'ouverture d'esprit sera sanctionné par une suppression immédiate des commentaires!!</span></p>
+</div>
+<div class="btn">
+    <i class="fas fa-arrow-circle-up"></i>
+</div>
+<!--- Fichier JS --->
+
+<script src="public/js/scroll.js"></script>

@@ -1,0 +1,31 @@
+<div class="bodyArticles">
+
+	<div class="accueil-blog">
+		<!--- affichage des articles (boucle, et lien vers la page show_article)--->
+		<div id="listeArticles">
+			<ul>
+				<?php
+				// var_dump($this->arguments["articles"]);
+				foreach ($this->arguments["articles"] as $a) { ?>
+					<li><a href="index.php?page=show_article&id=<?= $a->getId(); ?>"><?= $a->getTitre(); ?></a> | <?php if (!empty($_SESSION) && $_SESSION['is_admin'] == 1) { ?> <a href="index.php?page=supprimer&id=<?= $a->getId() ?>"><span>Supprimer</span></a></li> <?php } ?>
+			<?php } ?>
+			<ul>
+		</div>
+		<!--- bouton "lien" permettant d'orienter vers la page de création d'un article --->
+		<div id="articleButton">
+
+			<a class="boutton_article" href="index.php?page=add_billet" role="button">Rédiger un article</a>
+
+		</div>
+	</div>
+</div>
+
+
+<div class="btn">
+	<i class="fas fa-arrow-circle-up"></i>
+</div>
+
+
+<!--- Fichier JS --->
+
+<script src="public/js/scroll.js"></script>

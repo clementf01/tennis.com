@@ -1,0 +1,76 @@
+<div id="editProfil">
+    <h2>Edition de mon profil</h2>
+
+    <p>Vous accédez aux informations personnelles de votre profil. Cette page vous permet de modifier toute ou partie de vos informations. Toute modification sera enregistrée dans notre base de données dès que vous cliquerez sur: "Mettre à jour mon profil". <span>Veillez donc à bien retenir ces nouvelles données.</span>
+    </p>
+    <div id="formulaire">
+        <?php
+        $user = unserialize($_SESSION["user"]);
+        $id = $user["id"];
+        if (isset($_SESSION["message_error"]) && !empty($_SESSION["message_error"])) {
+
+        ?>
+            <div class="alerte-message">
+                <?php
+                echo $_SESSION["message_error"];
+                ?>
+            </div>
+        <?php
+        }
+        ?>
+        <form method="POST" action="index.php">
+            <input type="hidden" name="modif" value="modificationdeprofil">
+            <input type="hidden" name="id" value="<?php echo $id ?>">
+
+            <table class="edition-table">
+                <tr>
+                    <td>
+                        <label>Pseudo :</label>
+                    </td>
+                    <td>
+                        <input class="eprofil-pseudo" type="text" required name="pseudo" placeholder="Pseudo" value="<?php echo $this->arguments["user"]["pseudo"]; ?>" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>Mail :</label>
+                    </td>
+                    <td>
+                        <input class="eprofil-mail" type="text" required name="mail" placeholder="Mail" value="<?php echo $this->arguments["user"]["mail"]; ?>" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>Mot de passe :</label>
+                    </td>
+                    <td>
+                        <input class="eprofil-psw" type="password" required name="motdepasse" placeholder="Mot de passe" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>Confirmation - mot de passe :</label>
+                    </td>
+                    <td>
+                        <input class="eprofil-psw2" type="password" required name="motdepasse2" placeholder="Confirmation du mot de passe" />
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center" colspan="2">
+
+                        <input class="inputeprofil" type="submit" value="Mettre à jour mon profil !" />
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
+<?php
+if (isset($_SESSION["message_error"])) {
+    unset($_SESSION["message_error"]);
+}
+?>
+<div class="btn">
+    <i class="fas fa-arrow-circle-up"></i>
+</div>
+<!--- Fichier JS --->
