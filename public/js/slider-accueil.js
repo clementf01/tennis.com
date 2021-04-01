@@ -1,14 +1,14 @@
 'use strict'; // Mode strict du JavaScript
 
 /* déclaration des images composant le slider */
-var index = 0;
+
 show();
 
 function show() {
-    var i;
-    var slides = document.getElementsByClassName("slide");
-    var dots = document.getElementsByTagName("span");
-    for (i = 0; i < slides.length; i++) {
+
+    let slides = document.getElementsByClassName("slide");
+    let dots = document.getElementsByTagName("span");
+    for (let i = 0; i < slides.length; i++) {
         slides[i].style.display = " none";
     }
 
@@ -18,10 +18,14 @@ function show() {
 
     }
 
-    for (i = 0; i < dots.length; i++) {
+    for (let i = 0; i < dots.length; i++) {
         dots[i].className = dots[i].className.replace("active", "");
     }
-    slides[index - 1].style.display = "block";
-    dots[index - 1].className += "active";
+    if (slides[index - 1] != undefined) {
+        slides[index - 1].style.display = "block";
+        dots[index - 1].className += "active";
+    }
+
+
     setTimeout(show, 5000); /* délai de 5 secondes par image*/
 }

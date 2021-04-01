@@ -25,38 +25,38 @@
             <table class="edition-table">
                 <tr>
                     <td>
-                        <label>Pseudo :</label>
+                        <label for="pseudo">Pseudo :</label>
                     </td>
                     <td>
-                        <input class="eprofil-pseudo" type="text" required name="pseudo" placeholder="Pseudo" value="<?php echo $this->arguments["user"]["pseudo"]; ?>" />
+                        <input class="eprofil-pseudo" type="text" id="pseudo" required name="pseudo" placeholder="Pseudo" value="<?php echo $this->arguments["user"]["pseudo"]; ?>" />
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <label>Mail :</label>
+                        <label for="mail">Mail :</label>
                     </td>
                     <td>
-                        <input class="eprofil-mail" type="text" required name="mail" placeholder="Mail" value="<?php echo $this->arguments["user"]["mail"]; ?>" />
+                        <input class="eprofil-mail" type="text" id="mail" required name="mail" placeholder="Mail" value="<?php echo $this->arguments["user"]["mail"]; ?>" />
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <label>Mot de passe :</label>
+                        <label for="motdepasse">Mot de passe :</label>
                     </td>
                     <td>
-                        <input class="eprofil-psw" type="password" required name="motdepasse" placeholder="Mot de passe" />
+                        <input class="eprofil-psw" type="password" id="motdepasse" required name="motdepasse" placeholder="Mot de passe" />
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <label>Confirmation - mot de passe :</label>
+                        <label for="motdepasse2">Confirmation - mot de passe :</label>
                     </td>
                     <td>
-                        <input class="eprofil-psw2" type="password" required name="motdepasse2" placeholder="Confirmation du mot de passe" />
+                        <input class="eprofil-psw2" type="password" id="motdepasse2" required name="motdepasse2" placeholder="Confirmation du mot de passe" />
                     </td>
                 </tr>
                 <tr>
-                    <td align="center" colspan="2">
+                    <td colspan="2">
 
                         <input class="inputeprofil" type="submit" value="Mettre à jour mon profil !" />
                     </td>

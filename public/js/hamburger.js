@@ -1,10 +1,10 @@
 /* déclaration des variables */
 
-var content = document.querySelector('#hamburger-content');
-var sidebarBody = document.querySelector('#hamburger-sidebar-body');
-var button = document.querySelector('#hamburger-button');
-var overlay = document.querySelector('#hamburger-overlay');
-var activatedClass = 'hamburger-activated';
+let content = document.querySelector('#hamburger-content');
+let sidebarBody = document.querySelector('#hamburger-sidebar-body');
+let button = document.querySelector('#hamburger-button');
+let overlay = document.querySelector('#hamburger-overlay');
+let activatedClass = 'hamburger-activated';
 
 sidebarBody.innerHTML = content.innerHTML;
 
